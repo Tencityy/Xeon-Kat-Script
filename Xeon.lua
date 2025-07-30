@@ -198,7 +198,7 @@ local starterGui = game:GetService("StarterGui")
 wait(0)
 starterGui:SetCore("SendNotification", {
 Title    = "Moduel Toggled",
-Text     = "HeadESP has been enabled!",
+Text     = "Tracers has been enabled!",
 Duration = 5
 })  
 
@@ -208,11 +208,19 @@ local starterGui = game:GetService("StarterGui")
 wait(0)
 starterGui:SetCore("SendNotification", {
 Title    = "Moduel Toggled",
-Text     = "HeadESP has been disabled!",
+Text     = "Tracers has been disabled!",
 Duration = 5
 })
     end
 end)
+
+local LocalPlayer = Window:NewTab("Local Player")
+local LocalPlayer = Window:NewTab("Local Player")
+
+LocalPlayer:NewSlider("Speed", "Makes you the flash", 24, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
 
 local Tab = Window:NewTab("Credits")
 local Credits = Tab:NewSection("Credits")
@@ -225,4 +233,3 @@ Settings:NewLabel("Settings")
 Settings:NewKeybind("UI KeyBind", "Press a key to interlock the ui with your keybind", Enum.KeyCode.Insert, function()
     Library:ToggleUI()
 end)
-

@@ -1,3 +1,20 @@
+local allowedPlaceId = 621129760 -- Replace with the correct game ID
+
+if game.PlaceId ~= allowedPlaceId then
+    local starterGui = game:GetService("StarterGui")
+wait(0)
+starterGui:SetCore("SendNotification", {
+Title    = "Xeon cannot Run",
+Text     = "You are not in the correct game to run this script",
+Duration = 15
+})
+    return
+end
+
+-- Your actual script goes below this line
+print("Correct game detected. Running script...")
+
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Xeon 1.0 - Kat", "Midnight")
 
@@ -214,13 +231,12 @@ Duration = 5
     end
 end)
 
-local LocalPlayer = Window:NewTab("Local Player")
-local LocalPlayer = Window:NewTab("Local Player")
+local Tab = Window:NewTab("Local Player")
+local LocalPlayer = Tab:NewSection("Local Player")
 
-LocalPlayer:NewSlider("Speed", "Makes you the flash", 24, 0, function(s)
+LocalPlayer:NewSlider("Speed", "Makes u flash", 24, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-
 
 local Tab = Window:NewTab("Credits")
 local Credits = Tab:NewSection("Credits")
